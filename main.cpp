@@ -1,17 +1,15 @@
-#include "MainMap.cpp"
-#include <stdio.h>
-//#include <stdlib.h>
+#include "Forest.h"
+#include "Tree.h"
+#include <cstdio>
 
 int main() {
 
-	MainMap gameMap = MainMap(1,1);
-	gameMap.drawMap();
-
-	while(1)
+	
+	Forest forestObj;
+	Tree* forest = forestObj.getTrees();
+	for (int i = 0; i < forestObj.getTreeCount(); i++)
 	{
-		gameMap.movePlayer();
-		gameMap.drawMap();
-		printf("\n\nplayer is located at X: %d and Y: %d\n", gameMap.getPlayerCords().first, gameMap.getPlayerCords().second);
+		printf("tree number %d is of size %d\n", i, forest[i].getSize());
 	}
 
 	return 0;
