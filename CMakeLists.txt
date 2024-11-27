@@ -4,5 +4,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include_directories("bin/headers" "bin/source")
 
-project(basicMapper VERSION 1.0)
-add_executable(basicMapper.out main.cpp)
+project(survivalGame VERSION 1.0)
+add_executable(survivalGame.out main.cpp)
