@@ -1,19 +1,18 @@
 #include "Forest.h"
 #include "Tree.h"
 #include <cstdlib>
+#include <cstdio>
 #include <ctime>
 
 Forest::Forest()
 {
-	srand(0);
 	treeCount = 10 + (rand() % 25); //the amount of starting trees is between 10 and 25
-
-	int i = 0;
-	while (i < treeCount)
+	
+	for (int i = 0; i < treeCount; i++)
 	{
-		forest[i] = *(new Tree());
-		i++;
+		forest[i] = Tree( 1 + (rand() % 10) );
 	}
+
 }
 
 Tree* Forest::getTrees()

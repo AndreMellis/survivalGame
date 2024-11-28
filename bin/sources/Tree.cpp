@@ -1,3 +1,6 @@
 #include "Tree.h"
 
-Tree::Tree() : Plant(VAR_MAXTREESIZE) {} //call plant's constructor
+Tree::Tree(int initialSize) : Plant(VAR_MAXTREESIZE)
+{
+	size = initialSize;
+}

@@ -5,7 +5,6 @@
 Plant::Plant(int maxSizeInput)
 {
 	maxSize = maxSizeInput;
-	srand(time(0));
 	size = 1 + (rand() % 10); //size is a random num between 1 - 10
 }
 
