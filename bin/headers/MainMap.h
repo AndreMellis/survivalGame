@@ -5,6 +5,7 @@
 #define VAR_MAPWIDTH 100
 #define VAR_EMPTYFIELDASCII '.'
 #define VAR_WALLASCII '#'
+#define VAR_FORESTASCII '^'
 
 class MainMap
 {
