@@ -1,25 +1,25 @@
-#include "MainMap.h"
+#include "Forest.h"
+#include "Tree.h"
 #include <cstdio>
 #include <ctime>
 #include <cstdlib>
 #include <utility>
+#include <iostream>
 
 int main() {
 	srand(time(0));
 	
-	MainMap playerMap;
-	playerMap.drawMap();
+	Forest forestObj = Forest(std::make_pair(12,12));
 
-	printf("%c is at 48 98\n", playerMap.getObj( std::make_pair(48,98) ));
-	
-	/*
-	while(1)
+
+	for (int i = 0; i < 100; i++)
 	{
-		playerMap.movePlayer();
-		playerMap.drawMap();
-		printf("The player is now at X:%d Y:%d\n", playerMap.getPlayerCords().first, playerMap.getPlayerCords().second );
+		printf("day %d:\n", i);
+		printf("you got a harvest of size %d\n", forestObj.harvest());
+		printf("the forest has %d trees\n", forestObj.getTreeCount());
+		forestObj.step();
 	}
-	*/
+
 
 	return 0;
 

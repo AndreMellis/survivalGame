@@ -26,8 +26,8 @@ int Plant::step()
 int Plant::harvest()
 {
 	int harvestSize = 0;
-	if (size > 5)
-	{ //randomly decided that plants bigger than 5 should only return half size as max
+	if (size > (maxSize / 2))
+	{ //randomly decided that plants bigger than half max should only return half size as max
 		harvestSize = 1 + (rand() % (size/2) ); 
 	} else
 	{

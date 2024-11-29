@@ -7,13 +7,13 @@
 class Forest
 {
 private:
-	Tree forest[VAR_MAXFORESTSIZE]; //an array of the most amount of trees possible
+	Tree *forest[VAR_MAXFORESTSIZE]; //an array of pointers to trees
 	int treeCount; //how many trees are actually in the array
 	std::pair <int, int> centralCords;
 public:
 	Forest(); //construct
 	Forest(std::pair<int,int> cords); //construct
-	Tree* getTrees(); //returns pointer the first item in the array
+	Tree **getTrees(); //returns pointer the first item in the array
 	int getTreeCount();
 	std::pair <int, int> getCords();
 	int harvest(); //harvest a random tree
