@@ -1,5 +1,4 @@
-#include "Forest.h"
-#include "Tree.h"
+#include "MainMap.h"
 #include <cstdio>
 #include <ctime>
 #include <cstdlib>
@@ -8,16 +7,15 @@
 
 int main() {
 	srand(time(0));
+	MainMap map = MainMap(1,1);
 	
-	Forest forestObj = Forest(std::make_pair(12,12));
 
-
+	map.drawMap();
 	for (int i = 0; i < 100; i++)
 	{
 		printf("day %d:\n", i);
-		printf("you got a harvest of size %d\n", forestObj.harvest());
-		printf("the forest has %d trees\n", forestObj.getTreeCount());
-		forestObj.step();
+		std::pair<int,int> freeCords = map.getFreeNeighbor(std::make_pair(1,1));
+		printf("free neighbor is X: %d Y: %d\n", freeCords.first, freeCords.second); 
 	}
 
 

@@ -73,4 +73,6 @@ public:
 	void movePlayer(); //move player using wasd
 	void insertObj(char newObject, std::pair<int,int> cords); //insert a new object into the map, like ^, P or #
 	char getObj(std::pair<int,int> cords); //takes in cords, and returns the char that is there
+	std::pair<int,int> getFreeCords(); //returns random cords of a free spot on the map
+	std::pair<int,int> getFreeNeighbor(std::pair<int,int> inputCords); //takes an a set of cords and returns a free neighbor
 };
