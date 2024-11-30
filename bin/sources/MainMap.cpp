@@ -87,7 +87,7 @@ std::pair<int,int> MainMap::getFreeCords()
 std::pair<int,int> MainMap::getFreeNeighbor(std::pair<int,int> inputCords)
 { //take in cords and return one of the free neighbors
   //0,0 will mean there are no free neighbors
-	std::pair<int,int> freeNeighbors[6]; //six potential free neighbors
+	std::pair<int,int> freeNeighbors[8]; //six potential free neighbors
 	int freeNeighborCount = 0; //number of neighbors actually free
 
  	if (getObj( std::make_pair((inputCords.first - 1), (inputCords.second-1)) ) == VAR_EMPTYFIELDASCII)

@@ -14,10 +14,7 @@ void Engine::populateForests(Forest *pforest)
 	
 	for (int i = 0; i < amountOfTreeObjects; i++)
 	{
-		int xCord = lastPlacedAt.first;
-		int yCord = lastPlacedAt.second;
-		printf("X: %d Y: %d\n", xCord, yCord);
-		lastPlacedAt = map.getFreeNeighbor( std::make_pair(13,90) ); //get free cords next to the last tree you placed, not the first
+		lastPlacedAt = map.getFreeNeighbor( lastPlacedAt ); //get free cords next to the last tree you placed, not the first
 		map.insertObj(VAR_FORESTASCII, lastPlacedAt);
 	}
 }
