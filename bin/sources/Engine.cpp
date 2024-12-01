@@ -25,14 +25,14 @@ void Engine::populateMap()
 	pMap->insertPlayer( playerCords ); //place the player at the very end
 }
 
-void Engine::drawMap()
+void Engine::getInput()
 {
-	pMap->drawMap();
+	char inputChar;
+	scanf(" %c", &inputChar); //get user input. " %c" instead of "%c" to drop the newline char
+	
+	if (inputChar == 'w') {pMap->movePlayer('w');}
+	else if (inputChar == 'a') {pMap->movePlayer('a');}
+	else if (inputChar == 's') {pMap->movePlayer('s');}
+	else if (inputChar == 'd') {pMap->movePlayer('d');}
+	else if (inputChar == 'l' or inputChar == 'L') {menu.printLegend();}
 }
-
-void Engine::movePlayer()
-{
-	pMap->movePlayer();
-}
-
-

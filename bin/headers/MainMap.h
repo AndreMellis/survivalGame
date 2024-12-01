@@ -7,6 +7,7 @@
 #define VAR_WALLASCII '#'
 #define VAR_FORESTASCII '^'
 #define VAR_PLAYERASCII 'P'
+#define VAR_WATERASCII '~'
 
 class MainMap
 {
@@ -76,7 +77,7 @@ public:
 	static MainMap *getInstance(); //call constuctor through here to have one shared map instance globally
 	void drawMap(); //draws map to console
 	std::pair<int,int> getPlayerCords(); //returns the coordinates of the player
-	void movePlayer(); //move player using wasd
+	void movePlayer(char inputChar); //move player using wasd
 	void insertObj(char newObject, std::pair<int,int> cords); //insert a new object into the map, like ^, P or #
 	void insertPlayer(std::pair<int,int> cords); //a special player insert to set player cords
 	char getObj(std::pair<int,int> cords); //takes in cords, and returns the char that is there

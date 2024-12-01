@@ -37,11 +37,8 @@ std::pair<int,int> MainMap::getPlayerCords()
 	return std::make_pair(playerX, playerY);
 }
 
-void MainMap::movePlayer()
+void MainMap::movePlayer(char inputChar)
 {
-	char inputChar;
-	scanf(" %c", &inputChar); //" %c" ignores newline, but "%c" would read newline
-
 	if (inputChar == 'w' && notCollidable(playerMap[playerX-1][playerY]))
 	{//if i want to move up and won't hit a freaking wall
 		playerMap[playerX][playerY] = standingOn;//replace what I am with what I was
