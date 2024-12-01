@@ -42,25 +42,25 @@ void MainMap::movePlayer()
 	char inputChar;
 	scanf(" %c", &inputChar); //" %c" ignores newline, but "%c" would read newline
 
-	if (inputChar == 'w' && playerMap[playerX-1][playerY] != VAR_WALLASCII)
+	if (inputChar == 'w' && notCollidable(playerMap[playerX-1][playerY]))
 	{//if i want to move up and won't hit a freaking wall
 		playerMap[playerX][playerY] = standingOn;//replace what I am with what I was
 		playerX--; //counter-intuitive, but decrese x to move up
 	 	standingOn = playerMap[playerX][playerY]; //remember what I'm standing on
 		playerMap[playerX][playerY] = VAR_PLAYERASCII;
-	} else if (inputChar == 's' && playerMap[playerX+1][playerY] != VAR_WALLASCII)
+	} else if (inputChar == 's' && notCollidable(playerMap[playerX+1][playerY]))
 	{//if i want to move down and won't hit a wall
 		playerMap[playerX][playerY] = standingOn;//replace what I am with what I was
 		playerX++; 
 	 	standingOn = playerMap[playerX][playerY]; //remember what I'm standing on
 		playerMap[playerX][playerY] = VAR_PLAYERASCII;
-	} else if (inputChar == 'a' && playerMap[playerX][playerY-1] != VAR_WALLASCII)
+	} else if (inputChar == 'a' && notCollidable(playerMap[playerX][playerY-1]))
 	{//if i want to move left and won't hit a wall
 		playerMap[playerX][playerY] = standingOn;//replace what I am with what I was
 		playerY--; 
 	 	standingOn = playerMap[playerX][playerY]; //remember what I'm standing on
 		playerMap[playerX][playerY] = VAR_PLAYERASCII;
-	} else if (inputChar == 'd' && playerMap[playerX][playerY+1] != VAR_WALLASCII)
+	} else if (inputChar == 'd' && notCollidable(playerMap[playerX][playerY+1]))
 	{//if i want to move right and won't hit a wall
 		playerMap[playerX][playerY] = standingOn;//replace what I am with what I was
 		playerY++; 

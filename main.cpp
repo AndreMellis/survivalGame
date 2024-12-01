@@ -9,13 +9,6 @@
 int main() {
 	srand(time(0));
 	MainMap *pMap = MainMap::getInstance();
-
-	printf("# returns %d\n", pMap->notCollidable('#'));
-	printf(". returns %d\n", pMap->notCollidable('.'));
-	printf("^ returns %d\n", pMap->notCollidable('^'));
-	printf("y returns %d\n", pMap->notCollidable('y'));
-
-	/*
 	Engine engine;
 
 	engine.populateMap();
@@ -24,7 +17,6 @@ int main() {
 		engine.drawMap();
 		pMap->movePlayer();
 	} while(1);
-	*/
 
 	return 0;
 
