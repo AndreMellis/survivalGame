@@ -10,6 +10,8 @@
 int main() {
 	srand(time(0));
 
+
+	/*
 	Menus menu;
 	MainMap *pMap = MainMap::getInstance();
 	Engine engine;
@@ -22,6 +24,7 @@ int main() {
 		engine.getInput();
 
 	} while(1);
+	*/
 
 	return 0;
 
