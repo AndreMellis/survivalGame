@@ -163,3 +163,17 @@ std::pair<int,int> MainMap::getFreeNeighbor(std::pair<int,int> inputCords)
 		return std::make_pair(0,0);
 	}
 }
+
+bool MainMap::notCollidable(char inputChar)
+{ //returns true of object cannot be collided with
+	bool returnMe = 1; //assume it's not collidable by default
+	int i = 0;
+
+	while(i < sizeof(collidableChars) && returnMe)
+	{
+		if(collidableChars[i] == inputChar) {returnMe = 0;}
+		i++;
+	}
+
+	return returnMe;
+}
