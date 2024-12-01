@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "MainMap.h"
 #include <cstdio>
 #include <ctime>
 #include <cstdlib>
@@ -9,9 +10,14 @@ int main() {
 	srand(time(0));
 
 	Engine engine;
+	MainMap *pMap = MainMap::getInstance();
 
 	engine.populateMap();
-	engine.drawMap();
+	do
+	{
+		engine.drawMap();
+		pMap->movePlayer();
+	} while(1);
 
 	return 0;
 

@@ -5,8 +5,10 @@
 
 MainMap *MainMap::mapInst = 0;
 
+
 MainMap::MainMap()
 { //initializer
+	standingOn = VAR_EMPTYFIELDASCII;
 }
 
 
@@ -39,34 +41,44 @@ void MainMap::movePlayer()
 {
 	char inputChar;
 	scanf(" %c", &inputChar); //" %c" ignores newline, but "%c" would read newline
-	printf("you entered: %c\n", inputChar);
 
 	if (inputChar == 'w' && playerMap[playerX-1][playerY] != VAR_WALLASCII)
 	{//if i want to move up and won't hit a freaking wall
-		playerMap[playerX][playerY] = VAR_EMPTYFIELDASCII;
+		playerMap[playerX][playerY] = standingOn;//replace what I am with what I was
 		playerX--; //counter-intuitive, but decrese x to move up
-		playerMap[playerX][playerY] = 'P';
+	 	standingOn = playerMap[playerX][playerY]; //remember what I'm standing on
+		playerMap[playerX][playerY] = VAR_PLAYERASCII;
 	} else if (inputChar == 's' && playerMap[playerX+1][playerY] != VAR_WALLASCII)
 	{//if i want to move down and won't hit a wall
-		playerMap[playerX][playerY] = VAR_EMPTYFIELDASCII;
-		playerX++; //counter-intuitive, but increase x to move down
-		playerMap[playerX][playerY] = 'P';
+		playerMap[playerX][playerY] = standingOn;//replace what I am with what I was
+		playerX++; 
+	 	standingOn = playerMap[playerX][playerY]; //remember what I'm standing on
+		playerMap[playerX][playerY] = VAR_PLAYERASCII;
 	} else if (inputChar == 'a' && playerMap[playerX][playerY-1] != VAR_WALLASCII)
 	{//if i want to move left and won't hit a wall
-		playerMap[playerX][playerY] = VAR_EMPTYFIELDASCII;
-		playerY--; //counter-intuitive, but increase x to move down
-		playerMap[playerX][playerY] = 'P';
+		playerMap[playerX][playerY] = standingOn;//replace what I am with what I was
+		playerY--; 
+	 	standingOn = playerMap[playerX][playerY]; //remember what I'm standing on
+		playerMap[playerX][playerY] = VAR_PLAYERASCII;
 	} else if (inputChar == 'd' && playerMap[playerX][playerY+1] != VAR_WALLASCII)
 	{//if i want to move right and won't hit a wall
-		playerMap[playerX][playerY] = VAR_EMPTYFIELDASCII;
-		playerY++; //counter-intuitive, but increase x to move down
-		playerMap[playerX][playerY] = 'P';
+		playerMap[playerX][playerY] = standingOn;//replace what I am with what I was
+		playerY++; 
+	 	standingOn = playerMap[playerX][playerY]; //remember what I'm standing on
+		playerMap[playerX][playerY] = VAR_PLAYERASCII;
 	}
 }
 
 void MainMap::insertObj(char newObject, std::pair<int,int> cords)
 {//insert a new object into the map, like ^, P or #
 	playerMap[cords.first][cords.second] = newObject;
+}
+
+void MainMap::insertPlayer(std::pair<int,int> cords)
+{
+	playerMap[cords.first][cords.second] = VAR_PLAYERASCII;
+	playerX = cords.first;
+	playerY = cords.second;
 }
 
 char MainMap::getObj(std::pair<int,int> cords)

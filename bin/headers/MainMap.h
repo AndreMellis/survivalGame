@@ -67,6 +67,7 @@ private:
 
 	int playerX;
 	int playerY;
+	char standingOn; //need to remember what I'm standing on to replace it
 	static MainMap *mapInst;
 	MainMap(); //initializer that sets the starting point of Player
 	~MainMap(); 
@@ -76,6 +77,7 @@ public:
 	std::pair<int,int> getPlayerCords(); //returns the coordinates of the player
 	void movePlayer(); //move player using wasd
 	void insertObj(char newObject, std::pair<int,int> cords); //insert a new object into the map, like ^, P or #
+	void insertPlayer(std::pair<int,int> cords); //a special player insert to set player cords
 	char getObj(std::pair<int,int> cords); //takes in cords, and returns the char that is there
 	std::pair<int,int> getFreeCords(); //returns random cords of a free spot on the map
 	std::pair<int,int> getFreeNeighbor(std::pair<int,int> inputCords); //takes an a set of cords and returns a free neighbor

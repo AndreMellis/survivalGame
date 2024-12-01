@@ -12,4 +12,5 @@ private:
 public:
 	void populateMap(); //populates the map
 	void drawMap(); //draw the map
+	void movePlayer(); //move the player
 };

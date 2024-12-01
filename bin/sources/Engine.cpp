@@ -22,12 +22,17 @@ void Engine::populateMap()
 	populateForests(&forest);
 	
 	std::pair<int,int> playerCords = pMap->getFreeCords();
-	pMap->insertObj( VAR_PLAYERASCII, playerCords ); //place the player at the very end
+	pMap->insertPlayer( playerCords ); //place the player at the very end
 }
 
 void Engine::drawMap()
 {
 	pMap->drawMap();
+}
+
+void Engine::movePlayer()
+{
+	pMap->movePlayer();
 }
 
 
