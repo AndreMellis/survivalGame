@@ -2,7 +2,6 @@
 #include "Tree.h"
 #include <cstdlib>
 #include <cstdio>
-#include <ctime>
 #include <utility>
 
 Forest::Forest()
@@ -40,4 +39,23 @@ int Forest::getTreeCount()
 std::pair <int, int> Forest::getCords()
 {
 	return centralCords; 
+}
+
+int Forest::harvest()
+{ //I want this to harvest a random tree from the forest
+  //if the tree dies, it should swap the now dead tree with the last tree, then delete last tree
+  if (treeCount < 1) { return 0;} //no trees in forest, so don't bother
+  int treeToHarvest = rand() % treeCount; //generate a random num between 0 and total tree count
+  int harvestSize = forest[treeToHarvest].harvest();
+
+  if (forest[treeToHarvest].getSize() == 0)
+  {//tree is dead
+   printf("tree dead\n");
+   forest[treeToHarvest] = forest[treeCount]; //last tree takes harvested tree's spot
+   forest[treeCount] = Tree();//last tree is now a new obj
+   treeCount--;
+   printf("the forest now only has %d trees\n", treeCount);
+  }
+
+  return harvestSize;
 }

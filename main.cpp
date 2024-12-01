@@ -9,13 +9,14 @@ int main() {
 	srand(time(0));
 	
 	Forest forestObj = Forest(std::make_pair(1,4));
-	Tree* forest = forestObj.getTrees();
 
-	printf("the forest is located at %d %d\n", forestObj.getCords().first, forestObj.getCords().second);
+	int i = 0;
 
-	for (int i = 0; i < forestObj.getTreeCount(); i++)
+	while (i < 100)
 	{
-		printf("tree number %d is of size %d\n", i, forest[i].getSize());
+		printf("day %d\n", i);
+		int harvestSize = forestObj.harvest();
+		i++;
 	}
 
 	return 0;

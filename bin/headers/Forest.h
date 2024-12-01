@@ -16,4 +16,5 @@ public:
 	Tree* getTrees(); //returns pointer the first item in the array
 	int getTreeCount();
 	std::pair <int, int> getCords();
+	int harvest(); //harvest a random tree
 };
