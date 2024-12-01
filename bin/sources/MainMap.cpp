@@ -63,7 +63,7 @@ void MainMap::movePlayer()
 
 void MainMap::insertObj(char newObject, std::pair<int,int> cords)
 {//insert a new object into the map, like ^, P or #
-	
+	playerMap[cords.first][cords.second] = newObject;
 }
 
 char MainMap::getObj(std::pair<int,int> cords)
