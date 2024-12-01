@@ -17,4 +17,5 @@ public:
 	int getTreeCount();
 	std::pair <int, int> getCords();
 	int harvest(); //harvest a random tree
+	void step(); //progresses one day
 };

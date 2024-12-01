@@ -15,7 +15,7 @@ int main() {
 	while (i < 100)
 	{
 		printf("day %d\n", i);
-		int harvestSize = forestObj.harvest();
+		forestObj.step();
 		i++;
 	}
 

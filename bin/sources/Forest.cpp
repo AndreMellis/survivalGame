@@ -50,12 +50,27 @@ int Forest::harvest()
 
   if (forest[treeToHarvest].getSize() == 0)
   {//tree is dead
-   printf("tree dead\n");
    forest[treeToHarvest] = forest[treeCount]; //last tree takes harvested tree's spot
    forest[treeCount] = Tree();//last tree is now a new obj
    treeCount--;
-   printf("the forest now only has %d trees\n", treeCount);
   }
 
   return harvestSize;
+}
+
+void Forest::step()
+{
+	int newTreeNum = 0;
+	double breedableSize = VAR_MAXTREESIZE * .66;
+
+	for (int i = 0; i < treeCount; i++)
+	{
+		forest[i].step(); //grow the tree at the end/start of day
+		printf("tree %d is size %d\n", i, forest[i].getSize());
+				  
+		if (forest[i].getSize() > (int)(VAR_MAXTREESIZE * 0.66) ) //since 50*.66 is a float, cast it to an int
+		{ //tree is 2/3 max size and breedable
+		  newTreeNum++;
+		}
+	}
 }
