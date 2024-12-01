@@ -58,6 +58,7 @@ private:
 		"#.................................................................................................#",
 		"#.................................................................................................#",
 		"#.................................................................................................#",
+		"#.................................................................................................#",
 		"###################################################################################################"
 
 	};
@@ -70,4 +71,6 @@ public:
 	void drawMap(); //draws map to console
 	std::pair<int,int> getPlayerCords(); //returns the coordinates of the player
 	void movePlayer(); //move player using wasd
+	void insertObj(char newObject, std::pair<int,int> cords); //insert a new object into the map, like ^, P or #
+	char getObj(std::pair<int,int> cords); //takes in cords, and returns the char that is there
 };
