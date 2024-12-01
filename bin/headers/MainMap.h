@@ -6,6 +6,7 @@
 #define VAR_EMPTYFIELDASCII '.'
 #define VAR_WALLASCII '#'
 #define VAR_FORESTASCII '^'
+#define VAR_PLAYERASCII 'P'
 
 class MainMap
 {
@@ -66,9 +67,11 @@ private:
 
 	int playerX;
 	int playerY;
-public:
+	static MainMap *mapInst;
 	MainMap(); //initializer that sets the starting point of Player
-	MainMap(int startX, int startY); //initializer that sets the starting point of Player, but grabs as vars
+	~MainMap(); 
+public:
+	static MainMap *getInstance(); //call constuctor through here to have one shared map instance globally
 	void drawMap(); //draws map to console
 	std::pair<int,int> getPlayerCords(); //returns the coordinates of the player
 	void movePlayer(); //move player using wasd

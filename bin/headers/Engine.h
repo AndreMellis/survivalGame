@@ -5,7 +5,7 @@
 class Engine
 {
 private:
-	MainMap map;
+	MainMap *map;
 	void populateForests(Forest *pforest); //populate forests to the map
 					       //takes in the forest to populate
 	Forest forest;

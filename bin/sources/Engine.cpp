@@ -2,27 +2,32 @@
 #include <utility>
 #include <cstdio>
 
+MainMap *pMap = MainMap::getInstance();
+
 void Engine::populateForests(Forest *pforest)
 {
-	int amountOfTreeObjects = pforest->getTreeCount() / 5; //we will place one tree on the map for every 5 trees in forest
+	int amountOfTreeObjects = pforest->getTreeCount() / 5; //we will place one tree on the pMap for every 5 trees in forest
 	
-	//place the first tree
-	std::pair<int,int> lastPlacedAt = map.getFreeCords();
-	map.insertObj(VAR_FORESTASCII, lastPlacedAt);
-
-	printf("%d trees will be placed\n", amountOfTreeObjects);
-	
-	for (int i = 0; i < amountOfTreeObjects; i++)
+	std::pair<int,int> lastPlacedAt = pMap->getFreeCords();
+	do
 	{
-		lastPlacedAt = map.getFreeNeighbor( lastPlacedAt ); //get free cords next to the last tree you placed, not the first
-		map.insertObj(VAR_FORESTASCII, lastPlacedAt);
-	}
+		pMap->insertObj(VAR_FORESTASCII, lastPlacedAt);
+		lastPlacedAt = pMap->getFreeNeighbor( lastPlacedAt ); //get free cords next to the last tree you placed
+		amountOfTreeObjects--;
+	} while (amountOfTreeObjects > 0 && lastPlacedAt != std::make_pair(0,0) );
 }
 
 void Engine::populateMap()
 {
 	populateForests(&forest);
+	
+	std::pair<int,int> playerCords = pMap->getFreeCords();
+	pMap->insertObj( VAR_PLAYERASCII, playerCords ); //place the player at the very end
 }
 
-void Engine::drawMap() { map.drawMap(); }
+void Engine::drawMap()
+{
+	pMap->drawMap();
+}
+
 

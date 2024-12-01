@@ -3,18 +3,21 @@
 #include <stdlib.h>
 #include <utility>
 
+MainMap *MainMap::mapInst = 0;
+
 MainMap::MainMap()
 { //initializer
-	playerX = 2;
-	playerY = 3;
-	playerMap[playerX][playerY] = 'P';
 }
 
-MainMap::MainMap(int startX, int startY)
+
+MainMap *MainMap::getInstance()
 {
-	playerX = startX;
-	playerY = startY;
-	playerMap[startX][startY] = 'P';
+	if (mapInst == 0)
+	{
+		mapInst = new MainMap();
+	}
+
+	return mapInst;
 }
 
 void MainMap::drawMap()
@@ -75,6 +78,7 @@ std::pair<int,int> MainMap::getFreeCords()
 {
 	//height and width are minus too because a 50x100 2d array is actuall 48x98
 	std::pair<int,int> newCords = std::make_pair( (1 + (rand() % (VAR_MAPHEIGHT-2)) ), (1 + (rand() % (VAR_MAPWIDTH - 2)))  );
+	getObj(newCords);
 
 	while(getObj(newCords) != VAR_EMPTYFIELDASCII)
 	{ //generate new cords
@@ -87,6 +91,7 @@ std::pair<int,int> MainMap::getFreeCords()
 std::pair<int,int> MainMap::getFreeNeighbor(std::pair<int,int> inputCords)
 { //take in cords and return one of the free neighbors
   //0,0 will mean there are no free neighbors
+
 	std::pair<int,int> freeNeighbors[8]; //six potential free neighbors
 	int freeNeighborCount = 0; //number of neighbors actually free
 
