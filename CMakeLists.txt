@@ -6,5 +6,5 @@ include_directories("bin/headers" "bin/sources")
 
 project(survivalGame VERSION 1.0)
 
-set(SOURCES bin/sources/MainMap.cpp bin/sources/Plant.cpp bin/sources/Tree.cpp bin/sources/Forest.cpp bin/sources/Engine.cpp bin/sources/Menus.cpp)
+set(SOURCES bin/sources/MainMap.cpp bin/sources/Plant.cpp bin/sources/Tree.cpp bin/sources/Forest.cpp bin/sources/Engine.cpp bin/sources/Menus.cpp bin/sources/Actions.cpp bin/sources/Inventory.cpp)
 add_executable(survivalGame.out main.cpp ${SOURCES})

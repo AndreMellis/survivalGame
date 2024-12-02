@@ -174,3 +174,16 @@ bool MainMap::notCollidable(char inputChar)
 
 	return returnMe;
 }
+
+char *MainMap::standingNextTo()
+{
+	thingsImNextTo[0] = playerMap[playerX-1][playerY-1];
+	thingsImNextTo[1] = playerMap[playerX][playerY-1];
+	thingsImNextTo[2] = playerMap[playerX+1][playerY-1];
+	thingsImNextTo[3] = playerMap[playerX+1][playerY];
+	thingsImNextTo[4] = playerMap[playerX+1][playerY+1];
+	thingsImNextTo[5] = playerMap[playerX][playerY+1];
+	thingsImNextTo[6] = playerMap[playerX-1][playerY+1];
+	thingsImNextTo[7] = playerMap[playerX-1][playerY];
+	return thingsImNextTo;
+}

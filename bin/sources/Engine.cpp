@@ -34,5 +34,7 @@ void Engine::getInput()
 	else if (inputChar == 'a') {pMap->movePlayer('a');}
 	else if (inputChar == 's') {pMap->movePlayer('s');}
 	else if (inputChar == 'd') {pMap->movePlayer('d');}
+	else if (inputChar == 'q') {actions.harvestWood(&forest);}
 	else if (inputChar == 'l' or inputChar == 'L') {menu.printLegend();}
 }
+

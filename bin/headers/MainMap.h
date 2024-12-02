@@ -73,6 +73,7 @@ private:
 	MainMap(); //initializer that sets the starting point of Player
 	~MainMap(); 
 	const char collidableChars[2] = {VAR_WALLASCII, VAR_FORESTASCII};
+	char thingsImNextTo[8];
 public:
 	static MainMap *getInstance(); //call constuctor through here to have one shared map instance globally
 	void drawMap(); //draws map to console
@@ -84,4 +85,5 @@ public:
 	std::pair<int,int> getFreeCords(); //returns random cords of a free spot on the map
 	std::pair<int,int> getFreeNeighbor(std::pair<int,int> inputCords); //takes an a set of cords and returns a free neighbor
 	bool notCollidable(char inputChar); //returns true if the input is NOT collidable
+	char *standingNextTo(); //returns array of what you are standing next to. Size of 8
 };
