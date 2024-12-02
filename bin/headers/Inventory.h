@@ -14,5 +14,6 @@ public:
 	int addRemoveWood(int modNum); //can take in a pos or neg number
 	int addRemoveFood(int modNum); //can take in a pos or neg number
 	int addRemoveWater(int modNum); //can take in a pos or neg number
+	void printInv(); //prints inventory to screen
 
 };

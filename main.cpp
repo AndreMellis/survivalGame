@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "MainMap.h"
 #include "Menus.h"
+#include "Inventory.h"
 #include <cstdio>
 #include <ctime>
 #include <cstdlib>
@@ -12,6 +13,7 @@ int main() {
 
 	Menus menu;
 	MainMap *pMap = MainMap::getInstance();
+	Inventory *inv = Inventory::getInstance();
 	Engine engine;
 
 	engine.populateMap();
@@ -19,6 +21,7 @@ int main() {
 	{
 		pMap->drawMap();
 		menu.printControls();
+		inv->printInv();
 		engine.getInput();
 
 	} while(1);

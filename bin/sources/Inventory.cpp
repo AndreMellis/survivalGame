@@ -1,4 +1,5 @@
 #include "Inventory.h"
+#include <cstdio>
 
 Inventory *Inventory::invInst = 0;
 
@@ -33,4 +34,9 @@ int Inventory::addRemoveWater(int modNum)
 {
 	waterCount += modNum;
 	return waterCount;
+}
+
+void Inventory::printInv()
+{
+	printf("wood: %d\tfood: %d\twater: %d\n", woodCount, foodCount, waterCount);
 }
