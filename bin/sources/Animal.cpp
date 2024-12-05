@@ -1,6 +1,5 @@
 #include "Animal.h"
 #include <stdexcept>
-#include <string>
 
 Animal::Animal(int healthInput, int meatInput, char livesOnInput)
 {
@@ -9,7 +8,7 @@ Animal::Animal(int healthInput, int meatInput, char livesOnInput)
 	livesOn=livesOnInput;
 }
 
-void Animal::setHarmedBy(std::string damageItems[], int itemCount) {
+void Animal::setHarmedBy(int damageItems[], int itemCount) {
 	if (itemCount > VAR_MAXHARMEDBYITEMS) {throw std::invalid_argument("setHarmedBy itemCount larger than max array size");}//throw error if array too big
 
 	int i = 0;
@@ -17,7 +16,7 @@ void Animal::setHarmedBy(std::string damageItems[], int itemCount) {
 	{
 		harmedBy[i] = damageItems[i];
 		i++;
-	} while (i < itemCount && damageItems[i] != "");
+	} while (i < itemCount); 
 }
 
 int Animal::harvest() {return meat;}

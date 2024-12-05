@@ -1,8 +1,10 @@
 #include "Fish.h"
-#include <string>
 
 Fish::Fish() : Animal(1, 1, '~')
 {
-	std::string harming[1] = {"fishing"};
+	int harming[1] = {
+		FISHING
+	};
+
 	setHarmedBy(harming, 1);
 }
