@@ -1,17 +1,34 @@
-#include "Engine.h"
-#include "MainMap.h"
-#include "Menus.h"
-#include "Inventory.h"
+#include "GameEngine.h"
 #include "WindowRendering.h"
 #include <cstdio>
 #include <ctime>
 #include <cstdlib>
 #include <utility>
 
-int main() {
+int main(int argc, char *argv[]) {
 	srand(time(0));
+	GameEngine engine;
+	WindowRendering *windowRenderer = WindowRendering::getInstance();
 
-	WindowRendering *windowRendering = WindowRendering::getInstance();
+
+	//splash screen
+	windowRenderer->clearBuffer();
+
+	SDL_Rect fullWindow;
+	fullWindow.x = 0;
+	fullWindow.y = 0;
+	fullWindow.h = windowRenderer->getWindowH();
+	fullWindow.w = windowRenderer->getWindowW();
+	
+	windowRenderer->renderToBuffer("splashscreen.png", &fullWindow);
+	windowRenderer->renderPresent();
+
+	bool eventWasQuit = 0;
+	do 
+	{
+		eventWasQuit = engine.processEvent(); //process event queue and save exit as 1
+	} while ( !eventWasQuit );
+
 
 
 
