@@ -2,6 +2,7 @@
 #include "MainMap.h"
 #include "Menus.h"
 #include "Inventory.h"
+#include "WindowRendering.h"
 #include <cstdio>
 #include <ctime>
 #include <cstdlib>
@@ -10,7 +11,11 @@
 int main() {
 	srand(time(0));
 
+	WindowRendering *windowRendering = WindowRendering::getInstance();
 
+
+
+	/*
 	Menus menu;
 	MainMap *pMap = MainMap::getInstance();
 	Inventory *inv = Inventory::getInstance();
@@ -25,6 +30,7 @@ int main() {
 		engine.getInput();
 
 	} while(1);
+	*/
 
 	return 0;
 
