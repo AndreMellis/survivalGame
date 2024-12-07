@@ -2,12 +2,12 @@
 #define GAME_ENGINE_HEADER
 #include "WindowRendering.h"
 
-//#define VAR_COLUMNCOUNT 60
-//#define VAR_ROWCOUNT 30
-#define VAR_TILESIZE 30
+#define VAR_COLUMNCOUNT 60
+#define VAR_ROWCOUNT 10
+#define VAR_TILESIZE 10
 
-#define VAR_COLUMNCOUNT 2
-#define VAR_ROWCOUNT 2
+//#define VAR_ROWCOUNT 30
+//#define VAR_TILESIZE 30
 
 class GameEngine
 {

@@ -13,14 +13,7 @@ int main(int argc, char *argv[]) {
 	engine.genRects();
 
 	windowRenderer->clearBuffer();
-	windowRenderer->renderToBuffer("square.png", engine.getMatrixRect(0,0));
-	windowRenderer->renderToBuffer("square.png", engine.getMatrixRect(1,1));
 
-	SDL_Rect *square = engine.getMatrixRect(0,0);
-
-	printf("Square printed X %d Y %d W %d H %d\n", square->x, square->y, square->w, square->h);
-
-	/*
 	for(int RowY = 0; RowY < VAR_ROWCOUNT; RowY++)
 	{
 		for(int RowX = 0; RowX  < VAR_COLUMNCOUNT; RowX ++)
@@ -29,7 +22,6 @@ int main(int argc, char *argv[]) {
 			windowRenderer->renderToBuffer( "square.png", engine.getMatrixRect(RowX, RowY) );
 		}
 	}
-	*/
 
 	windowRenderer->renderPresent();
 

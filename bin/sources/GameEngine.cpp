@@ -39,8 +39,8 @@ void GameEngine::genRects()
 		{
 			rectTiles[RowX][RowY].x = x;
 			rectTiles[RowX][RowY].y = y;
-			rectTiles[RowX][RowY].w = x + VAR_TILESIZE;
-			rectTiles[RowX][RowY].h = y + VAR_TILESIZE;
+			rectTiles[RowX][RowY].w = VAR_TILESIZE; //it willl always be a 30x30 square. only offset the x/y
+			rectTiles[RowX][RowY].h = VAR_TILESIZE; //it willl always be a 30x30 square. only offset the x/y
 			printf("rectiles[%d][%d] is X: %d Y: %d W: %d H: %d\n", RowX, RowY, rectTiles[RowX][RowY].x, rectTiles[RowX][RowY].y, rectTiles[RowX][RowY].w, rectTiles[RowX][RowY].h );
 			
 			x += VAR_TILESIZE;
