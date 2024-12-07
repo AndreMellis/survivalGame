@@ -1,4 +1,5 @@
 #include "GameEngine.h"
+#include <stdio.h>
 
 GameEngine::GameEngine()
 {
@@ -27,6 +28,24 @@ bool GameEngine::processEvent()
 	return 0;
 }
 
-void GameEngine::worldGen()
-{ //generates world 
+void GameEngine::genRects()
+{
+	int x = 0;
+	int y = 0;
+
+	for(int RowY = 0; RowY < VAR_ROWCOUNT; RowY++)
+	{
+		for(int RowX = 0; RowX  < VAR_COLUMNCOUNT; RowX ++)
+		{
+			rectTiles[RowX][RowY].x = x;
+			rectTiles[RowX][RowY].y = y;
+			rectTiles[RowX][RowY].w = x + VAR_TILESIZE;
+			rectTiles[RowX][RowY].h = y + VAR_TILESIZE;
+			printf("rectiles[%d][%d] is X: %d Y: %d W: %d H: %d\n", RowX, RowY, rectTiles[RowX][RowY].x, rectTiles[RowX][RowY].y, rectTiles[RowX][RowY].w, rectTiles[RowX][RowY].h );
+			
+			x += VAR_TILESIZE;
+		} 
+		x = 0; //x would reset for every row
+		y = y + VAR_TILESIZE;
+	}
 }
