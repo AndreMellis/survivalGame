@@ -121,3 +121,22 @@ void WindowRendering::renderToBuffer(std::string pngPath, SDL_Rect *rectToFill)
 		printf("failed to load %s\n", pngPath.c_str());
 	}
 }
+
+void WindowRendering::clearBuffer( std::string pngBackground )
+{
+	SDL_RenderClear( gRenderer );
+
+	SDL_Rect wholeScreen;
+	wholeScreen.x = 0;
+	wholeScreen.y = 0;
+	wholeScreen.w = windowWidth;
+	wholeScreen.h = windowHeight;
+
+	if( loadMedia(pngBackground) )
+	{ //media was loaded
+		SDL_RenderCopy( gRenderer, gTextureBuffer, NULL, &wholeScreen);		
+	} else
+	{
+		printf("failed to load %s\n", pngBackground.c_str());
+	}
+}

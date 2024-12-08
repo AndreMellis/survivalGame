@@ -25,6 +25,7 @@ public:
 	void close();
 	static WindowRendering *getInstance();
 	void clearBuffer() { SDL_RenderClear( gRenderer );} //must call before below
+	void clearBuffer(std::string pngBackground); //clear buffer to background image
 	void renderToBuffer(std::string pngPath, SDL_Rect *rectToFill); //takes in a png path and renders it to the given rect
 	void renderPresent() { SDL_RenderPresent( gRenderer ); } //writes buffer to screen
 	int getWindowW() { return windowWidth; }

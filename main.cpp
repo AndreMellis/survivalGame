@@ -12,16 +12,16 @@ int main(int argc, char *argv[]) {
 	GameEngine engine;
 	engine.genRects();
 
-	windowRenderer->clearBuffer();
+	windowRenderer->clearBuffer("assets/textures/grass.png");
 
-	for(int RowY = 0; RowY < VAR_ROWCOUNT; RowY++)
-	{
-		for(int RowX = 0; RowX  < VAR_COLUMNCOUNT; RowX ++)
-		{
-			printf("Rendering X %d Y %d\n", RowX, RowY);
-			windowRenderer->renderToBuffer( "square.png", engine.getMatrixRect(RowX, RowY) );
-		}
-	}
+	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(16, 25) );
+	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(16, 26) );
+	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(16, 27) );
+	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(16, 28) );
+	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(15, 25) );
+	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(15, 26) );
+	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(15, 27) );
+	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(15, 28) );
 
 	windowRenderer->renderPresent();
 
