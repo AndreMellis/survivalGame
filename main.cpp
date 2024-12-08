@@ -12,16 +12,17 @@ int main(int argc, char *argv[]) {
 	GameEngine engine;
 	engine.genRects();
 
-	windowRenderer->clearBuffer("assets/textures/grass.png");
+	windowRenderer->clearBuffer();
 
-	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(16, 25) );
-	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(16, 26) );
-	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(16, 27) );
-	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(16, 28) );
-	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(15, 25) );
-	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(15, 26) );
-	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(15, 27) );
-	windowRenderer->renderToBuffer( "assets/textures/dryDirt.png", engine.getMatrixRect(15, 28) );
+	for(int column = 0; column < engine.getColumnCount(); column++)
+	{
+		for(int row = 0; row < engine.getRowCount(); row++)
+		{
+			windowRenderer->renderToBuffer("assets/textures/grass.png", engine.getMatrixRect(column,row));
+		}
+	}
+
+	windowRenderer->renderToBuffer("assets/textures/dirt.png", engine.getMatrixRect(15,15));
 
 	windowRenderer->renderPresent();
 
